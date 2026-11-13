@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>CV Elyakim Nahampun</title>
+<link rel="stylesheet" href="css/cv.css">
+</head>
+<body>
+<div class="bar">Menyiapkan CV… jika dialog cetak tidak muncul, tekan
+  <button id="dl2" type="button">Simpan sebagai PDF</button></div>
+
+<div class="app">
+  <aside class="panel">
+    <h1>Buat CV sesuai lamaran</h1>
+    <p class="sub">Isi diambil dari data portofoliomu. Pilih bidang, lalu unduh sebagai PDF.</p>
+
+    <label for="p">Bidang yang dilamar</label>
+    <select id="p"></select>
+
+    <label for="role">Nama posisi (opsional)</label>
+    <input type="text" id="role" placeholder="mis. Frontliner, Admin Gudang, Staff IT">
+
+    <label for="company">Nama perusahaan (opsional, untuk nama file)</label>
+    <input type="text" id="company" placeholder="mis. Bank Artha Graha">
+
+    <label for="len">Panjang</label>
+    <select id="len">
+      <option value="full">Lengkap (maks. 2 halaman)</option>
+      <option value="short">Ringkas (target 1 halaman)</option>
+    </select>
+
+    <label for="jd">Tempel deskripsi lowongan (opsional)</label>
+    <textarea id="jd" placeholder="Kata kunci lowongan yang cocok dengan datamu akan dinaikkan ke urutan depan di Keterampilan."></textarea>
+
+    <label class="chk"><input type="checkbox" id="links"> Cantumkan link proyek</label>
+
+    <button class="dl" id="dl" type="button">Unduh PDF</button>
+    <p class="hint">Di dialog cetak pilih tujuan "Simpan sebagai PDF", ukuran A4, dan matikan "Header dan footer". Hasilnya PDF berisi teks asli, jadi terbaca oleh sistem ATS.</p>
+
+    <div class="info"><div id="pg"></div><div id="kw"></div></div>
+  </aside>
+
+  <main class="stage"><article id="cv"></article></main>
+</div>
+
+<script src="js/cvdata.js"></script>
+<script src="js/cv.js"></script>
+</body>
+</html>

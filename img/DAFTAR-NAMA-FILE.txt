@@ -1,0 +1,40 @@
+Taruh gambar di folder ini dengan nama persis seperti di bawah (huruf kecil semua).
+Format .webp / .jpg / .jpeg / .png semuanya bisa. Target ukuran: di bawah 200 KB per gambar.
+Tanda [ada] = file sudah tersedia di folder ini.
+
+FOTO PROFIL
+profil.webp                    foto kartu ID di hero
+
+LOGO PENGALAMAN (kotak kecil, sebaiknya persegi/transparan)
+lazada.webp                    logo Lazada
+kpu.webp                       logo KPU
+organisasi.webp                logo Ikatan Mahasiswa Kristen
+
+PROYEK
+desa-patumbak.webp             gambar utama
+desa-patumbak-doc.webp         dokumentasi
+sistem-pakar.webp              gambar utama
+sistem-pakar-doc.webp          dokumentasi
+
+PRESTASI & PENGHARGAAN
+juara-web-hut80.webp
+penghargaan-kpu.webp
+
+GAMBAR SERTIFIKAT
+google-ads.webp                [ada]
+google-analytics.webp          [ada]
+kompetensi-web.webp
+toefl.webp                     [ada]
+ibm-data.webp                  [ada]
+ibm-pm.webp                    [ada]
+ibm-genai.webp                 [ada]
+gnik-self-efficacy.webp        [ada]
+gnik-digital-literacy.webp     [ada]
+gnik-social-influence.webp     [ada]
+
+LOGO PENERBIT SERTIFIKAT (diambil dari sertifikatmu; ganti dengan logo resmi jika punya)
+logo-google-ads.webp           [ada]
+logo-google-analytics.webp     [ada]
+logo-toefl-academy.webp        [ada]
+logo-ibm.webp                  [ada]
+logo-gnik.webp                 [ada]

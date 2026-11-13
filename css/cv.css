@@ -1,0 +1,82 @@
+/* ===== halaman pengatur (layar) ===== */
+:root{--ac:#0f7a5c;--ac2:#f26b3a;--line:#e3e8e5;--muted:#5f6b65;--text:#14201b}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:#eef2f0;line-height:1.5}
+.app{display:grid;grid-template-columns:340px 1fr;gap:24px;max-width:1200px;margin:0 auto;padding:24px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;align-self:start;position:sticky;top:16px}
+.panel h1{font-size:1.15rem;margin-bottom:4px}
+.panel .sub{font-size:.82rem;color:var(--muted);margin-bottom:14px}
+label{display:block;font-size:.8rem;font-weight:600;margin:12px 0 4px}
+input[type=text],select,textarea{width:100%;font:inherit;font-size:.92rem;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text)}
+textarea{min-height:120px;resize:vertical}
+.chk{display:flex;gap:8px;align-items:center;font-weight:500;margin-top:12px}
+.chk input{width:auto}
+button.dl,.bar a.dl{display:block;width:100%;margin-top:16px;padding:13px;border:0;border-radius:99px;background:var(--ac);color:#fff;font:inherit;font-weight:600;cursor:pointer;text-align:center;text-decoration:none}
+button.dl:hover{filter:brightness(1.08)}
+.info{margin-top:14px;font-size:.82rem;color:var(--muted)}
+.info p{margin-top:8px}.info .w{color:#a4400f;background:#fff3ec;border-radius:8px;padding:8px 10px}
+.hint{font-size:.76rem;color:var(--muted);margin-top:10px}
+.stage{overflow:auto}
+.bar{display:none}
+
+/* ===== lembar CV (layar + cetak): satu kolom, teks asli, aman untuk ATS ===== */
+#cv{--ink:#111827;--ac:#1d3b5f;--mute:#4b5563;--tint:#eef3f8;--rule:#c9d4e0;
+  width:210mm;min-height:297mm;margin:0 auto;background:#fff;padding:14mm 16mm;box-shadow:0 8px 30px rgba(20,40,30,.12);
+  font-family:Calibri,Carlito,Arial,Helvetica,"Liberation Sans",sans-serif;font-size:10.5pt;line-height:1.4;color:var(--ink);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+#cv header{text-align:center;padding-bottom:7pt;margin-bottom:2pt;border-bottom:2.2pt solid var(--ac)}
+#cv h1{font-size:24pt;font-weight:700;line-height:1.1;color:var(--ac)}
+#cv .hl{font-size:12pt;font-weight:600;margin-top:3pt;text-transform:uppercase;color:var(--ink)}
+#cv .ct{font-size:9.6pt;margin-top:3pt;color:var(--mute)}
+#cv .ct:first-of-type{margin-top:5pt}
+#cv .ct i{font-style:normal;margin:0 6pt;color:#9aa8b8}
+#cv .nw{white-space:nowrap}
+#cv section{margin-top:10pt}
+#cv h2{font-size:10.5pt;font-weight:700;text-transform:uppercase;color:var(--ac);
+  border-bottom:.8pt solid var(--rule);padding-bottom:2pt;margin-bottom:5pt;break-after:avoid}
+#cv p{margin:0}
+#cv .sum p{font-size:10.5pt}
+#cv .item{margin-bottom:6pt;break-inside:avoid}
+#cv .row{display:flex;justify-content:space-between;gap:10pt;align-items:baseline}
+#cv .role{font-size:11pt}
+#cv .dt{white-space:nowrap;font-size:9.8pt;color:var(--mute);font-weight:600}
+#cv .org{color:var(--ac);font-weight:600;font-size:10pt}
+#cv .u{font-style:normal;font-weight:400;font-size:9pt;color:var(--mute)}
+#cv ul{margin:2.5pt 0 0 13pt;padding:0}
+#cv li{margin-bottom:1.6pt;padding-left:1pt}
+#cv li::marker{color:var(--ac)}
+#cv li b{font-weight:700}
+#cv .sk{margin-bottom:2pt}
+#cv .sk b{color:var(--ac)}
+#cv.short{font-size:9.8pt;line-height:1.3}
+#cv.short h1{font-size:21pt}
+#cv.short .hl{font-size:10.8pt}
+#cv.short .ct{font-size:9pt;margin-top:2pt}
+#cv.short header{padding-bottom:5pt}
+#cv.short section{margin-top:6.5pt}
+#cv.short h2{font-size:9.8pt;margin-bottom:3pt}
+#cv.short .item{margin-bottom:3.5pt}
+#cv.short .role{font-size:10.2pt}
+#cv.short li{margin-bottom:.5pt}
+
+@media (max-width:980px){
+  .app{grid-template-columns:1fr;padding:14px}
+  .panel{position:static}
+}
+
+/* ===== mode cetak langsung dari portofolio ===== */
+.print-only{background:#fff}
+.print-only .app{display:block;padding:0;max-width:none}
+.print-only .panel{display:none}
+.print-only .bar{display:block;position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 16px;text-align:center;font-size:.85rem;color:var(--muted)}
+.print-only .bar button{margin-left:10px;padding:8px 18px;border:0;border-radius:99px;background:var(--ac);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+.print-only #cv{box-shadow:none}
+
+@page{size:A4;margin:14mm 15mm}
+@media print{
+  body,.print-only{background:#fff}
+  .panel,.bar{display:none!important}
+  .app{display:block;padding:0;max-width:none}
+  .stage{overflow:visible}
+  #cv{width:auto;min-height:0;margin:0;padding:0;box-shadow:none}
+}
