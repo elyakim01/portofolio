@@ -31,6 +31,7 @@ button.dl:hover{filter:brightness(1.08)}
 #cv .ct:first-of-type{margin-top:5pt}
 #cv .ct i{font-style:normal;margin:0 6pt;color:#9aa8b8}
 #cv .nw{white-space:nowrap}
+#cv a{color:var(--ac);text-decoration:underline;text-underline-offset:1.5pt}
 #cv section{margin-top:10pt}
 #cv h2{font-size:10.5pt;font-weight:700;text-transform:uppercase;color:var(--ac);
   border-bottom:.8pt solid var(--rule);padding-bottom:2pt;margin-bottom:5pt;break-after:avoid}
