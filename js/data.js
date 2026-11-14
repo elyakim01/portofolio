@@ -51,10 +51,10 @@ var PORTFOLIO = {
       role: 'Anggota Panitia Pemungutan Suara (PPS)',
       pill: 'Juni 2024 – Januari 2025',
       short: 'Administrasi dan pendataan pemilih tingkat desa.',
-      chips: ['±21.000 data', 'Verifikasi lapangan'],
+      chips: ['15.927 data', 'Verifikasi lapangan'],
       desc: 'Berperan dalam pelaksanaan tahapan administrasi dan pendataan pemilih serta mendukung koordinasi penyelenggaraan Pemilu di tingkat desa/kelurahan.',
       pts: [
-        'Mengelola dan memutakhirkan sekitar 21.000 data pemilih di tingkat desa/kelurahan.',
+        'Mengelola dan memutakhirkan 15.927 data pemilih di tingkat desa/kelurahan.',
         'Melakukan koordinasi dengan KPU, PPK, Panwas, KPPS, petugas keamanan, dan pemerintah setempat.',
         'Melaksanakan sosialisasi kepada masyarakat umum di wilayah tugas untuk membangun penerimaan dan kelancaran pelaksanaan tugas PPS.',
         'Melakukan verifikasi faktual melalui survei lapangan, lalu memilah data pemilih yang sesuai dan tidak sesuai, misalnya karena pemilih meninggal dunia, pindah domisili, atau perubahan susunan Kartu Keluarga.',
