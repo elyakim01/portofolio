@@ -71,10 +71,13 @@
     var an = analyse(S.jd);
     var title = S.role.trim() || prof.title;
 
-    function nw(x) { return '<span class="nw">' + h(x) + '</span>'; }
-    var l1 = [P.phone, P.email].filter(Boolean).map(nw).join('<i>|</i>');
-    var l2 = [P.location, P.linkedin, P.site].filter(Boolean).map(nw).join('<i>|</i>');
-    var out = '<header><h1>' + h(P.name) + '</h1><div class="hl">' + h(title) + '</div><div class="ct">' + l1 + '</div><div class="ct">' + l2 + '</div></header>';
+    function nw(x, url) {
+      var t = h(x);
+      return '<span class="nw">' + (url ? '<a href="' + h(url) + '">' + t + '</a>' : t) + '</span>';
+    }
+    var l1 = [nw(P.phone), nw(P.email, 'mailto:' + P.email), nw(P.location)].join('<i>|</i>');
+    var l2 = [P.linkedin ? nw(P.linkedin, P.linkedinUrl) : '', P.site ? nw(P.site, P.siteUrl) : ''].filter(Boolean).join('<i>|</i>');
+    var out = '<header><h1>' + h(P.name) + '</h1><div class="hl">' + h(title) + '</div><div class="ct">' + l1 + '</div>' + (l2 ? '<div class="ct">' + l2 + '</div>' : '') + '</header>';
 
     out += '<section class="sum"><h2>Ringkasan Profil</h2><p>' + h(prof.summary) + '</p></section>';
 
@@ -95,7 +98,7 @@
         if (!prof.projects.length) return '';
         var list = prof.projects.slice(0, short ? 2 : 9).map(function (id) {
           var p = C.projects[id];
-          var link = (S.links && p.url) ? ' <span class="u">' + h(p.url.replace(/^https?:\/\//, '')) + '</span>' : '';
+          var link = (S.links && p.url) ? ' <span class="u"><a href="' + h(p.url) + '">' + h(p.url.replace(/^https?:\/\//, '')) + '</a></span>' : '';
           return '<div class="item"><div class="row"><b>' + h(p.name) + '</b></div><div class="org">' + h(p.stack) + link + '</div>' +
             '<ul><li>' + h(short ? p.short : p.line) + '</li></ul></div>';
         }).join('');
