@@ -51,7 +51,7 @@ var CV = {
       org: 'KPU Kabupaten Deli Serdang (Desa Patumbak Kampung)',
       period: 'Juni 2024 – Januari 2025',
       b: {
-        data:   'Mengelola dan memutakhirkan ±21.000 data pemilih di tingkat desa/kelurahan.',
+        data:   'Mengelola dan memutakhirkan 15.927 data pemilih di tingkat desa/kelurahan.',
         verif:  'Melakukan verifikasi faktual melalui survei lapangan, memilah data yang sesuai dan tidak sesuai (pemilih meninggal dunia, pindah domisili, perubahan Kartu Keluarga).',
         koor:   'Berkoordinasi dengan KPU, PPK, Panwas, KPPS, petugas keamanan, dan pemerintah setempat.',
         sos:    'Melaksanakan sosialisasi kepada masyarakat umum di wilayah tugas.',
@@ -174,7 +174,7 @@ var CV = {
       file: 'Admin',
       label: 'Administrasi & Pengelolaan Data',
       title: 'Lulusan S1 Sistem Informasi',
-      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53, dengan pujian) dengan pengalaman mengelola dan memutakhirkan ±21.000 data pemilih serta administrasi dokumen di KPU Kabupaten Deli Serdang, dan menjaga ketepatan data stok melalui cycle count di Lazada Indonesia. Terampil dalam Microsoft Office, spreadsheet, dan data entry. Teliti, disiplin, dan terbiasa berkoordinasi dengan banyak pihak.',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53, dengan pujian) dengan pengalaman mengelola dan memutakhirkan 15.927 data pemilih serta administrasi dokumen di KPU Kabupaten Deli Serdang, dan menjaga ketepatan data stok melalui cycle count di Lazada Indonesia. Terampil dalam Microsoft Office, spreadsheet, dan data entry. Teliti, disiplin, dan terbiasa berkoordinasi dengan banyak pihak.',
       sections: ['exp', 'edu', 'skill', 'cert', 'award', 'org', 'proj'],
       bullets: {
         kpu: ['data', 'verif', 'doc', 'koor', 'rekrut'],
