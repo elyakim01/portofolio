@@ -16,8 +16,10 @@ var CV = {
     phone: '0877-5020-6133',
     email: 'arjunahakim.01@gmail.com',
     linkedin: 'linkedin.com/in/elyakim-nahampun-48015a429',
+    linkedinUrl: 'https://www.linkedin.com/in/elyakim-nahampun-48015a429/',
     location: 'Patumbak, Deli Serdang, Sumatera Utara',
-    site: ''          // isi alamat portofolio setelah deploy, mis. 'elyakim.vercel.app'
+    site: 'portofolio-one-omega-14.vercel.app',
+    siteUrl: 'https://portofolio-one-omega-14.vercel.app'
   },
 
   edu: {
@@ -34,9 +36,9 @@ var CV = {
       org: 'Lazada Indonesia, Tanjung Morawa, Deli Serdang',
       period: 'Februari 2025 – Juni 2026',
       b: {
-        inbound:  'Menerima barang inbound menggunakan laptop dan barcode scanner, memastikan barang fisik sesuai data penerimaan.',
-        putaway:  'Melakukan putaway ke inventory dengan perangkat RF; capaian rata-rata ±700 pcs/jam (target perusahaan 500 pcs/jam, tertinggi 800 pcs/jam).',
-        stock:    'Mencari dan memindahkan stok dengan pemindaian barcode untuk menjaga ketepatan lokasi dan jumlah barang.',
+        inbound:  'Menerima barang inbound menggunakan laptop, memastikan barang fisik sesuai data penerimaan.',
+        putaway:  'Melakukan putaway ke lokasi inventory; capaian rata-rata ±700 pcs/jam (target perusahaan 500 pcs/jam, tertinggi 800 pcs/jam).',
+        stock:    'Mencari dan memindahkan stok untuk menjaga ketepatan lokasi dan jumlah barang.',
         cc:       'Melakukan cycle count bulanan untuk mencocokkan stok fisik dengan data sistem.',
         outbound: 'Memproses outbound (picking, packing, handover) sesuai pesanan.',
         admin:    'Menata barang dan mendukung administrasi gudang.',
@@ -115,7 +117,6 @@ var CV = {
     { n: 'Inventory Management', g: 1, syn: ['inventory', 'inventori', 'persediaan', 'stok', 'stock', 'warehouse', 'gudang'] },
     { n: 'Inbound & Outbound', g: 1, syn: ['inbound', 'outbound', 'receiving', 'penerimaan barang', 'pengiriman', 'dispatch', 'handover'] },
     { n: 'Cycle Count / Stock Opname', g: 1, syn: ['cycle count', 'stock opname', 'stok opname', 'opname'] },
-    { n: 'Barcode & RF Scanner', g: 1, syn: ['barcode', 'rf scanner', 'scanner', 'scan', 'handheld'] },
     { n: 'Picking & Packing', g: 1, syn: ['picking', 'packing', 'pick and pack', 'putaway', 'put away'] },
     { n: 'Logistik', g: 1, syn: ['logistik', 'logistics', 'supply chain', 'rantai pasok', 'operasional'] },
 
@@ -164,7 +165,7 @@ var CV = {
       certs: ['gads', 'gana', 'web', 'ibm', 'toefl', 'gnik'],
       awards: ['web', 'kpu'],
       skills: ['Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Pengelolaan Data', 'Administrasi Dokumen',
-               'Inventory Management', 'Barcode & RF Scanner', 'Cycle Count / Stock Opname',
+               'Inventory Management', 'Cycle Count / Stock Opname',
                'PHP', 'MySQL', 'JavaScript', 'HTML & CSS', 'Web Development',
                'Komunikasi', 'Kerja Tim & Koordinasi', 'Ketelitian', 'Manajemen Waktu', 'Problem Solving', 'Adaptif', 'Bahasa Inggris (TOEFL 627)']
     },
@@ -192,7 +193,7 @@ var CV = {
       file: 'Warehouse',
       label: 'Warehouse, Logistik & Inventory',
       title: 'Lulusan S1 Sistem Informasi',
-      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53) dengan sekitar 1,5 tahun pengalaman operasional gudang di Lazada Indonesia: inbound, putaway, cycle count, dan outbound dengan perangkat RF dan barcode scanner, dengan capaian rata-rata ±700 pcs/jam (target 500 pcs/jam). Teliti pada data stok, terbiasa bekerja dengan target, dan pernah menggantikan peran pengawas.',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53) dengan sekitar 1,5 tahun pengalaman operasional gudang di Lazada Indonesia: inbound, putaway, cycle count, dan outbound, dengan capaian rata-rata ±700 pcs/jam (target 500 pcs/jam). Teliti pada data stok, terbiasa bekerja dengan target, dan pernah menggantikan peran pengawas.',
       sections: ['exp', 'skill', 'edu', 'cert', 'award', 'org', 'proj'],
       bullets: {
         lazada: ['putaway', 'inbound', 'stock', 'cc', 'outbound', 'sup', 'admin', 'team'],
@@ -202,7 +203,7 @@ var CV = {
       projects: [],
       certs: ['ibm', 'gnik', 'toefl', 'gana', 'web'],
       awards: ['kpu', 'web'],
-      skills: ['Inventory Management', 'Inbound & Outbound', 'Cycle Count / Stock Opname', 'Barcode & RF Scanner', 'Picking & Packing', 'Logistik',
+      skills: ['Inventory Management', 'Inbound & Outbound', 'Cycle Count / Stock Opname', 'Picking & Packing', 'Logistik',
                'Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Administrasi Dokumen', 'Dasar Manajemen Proyek (IBM)',
                'Kerja Tim & Koordinasi', 'Ketelitian', 'Manajemen Waktu', 'Adaptif', 'Problem Solving']
     },
