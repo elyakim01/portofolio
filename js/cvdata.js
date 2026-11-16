@@ -14,7 +14,7 @@ var CV = {
   person: {
     name: 'Elyakim Nahampun, S.Kom.',
     phone: '0877-5020-6133',
-    email: 'arjunahakim.01@gmail.com',
+    email: 'elyakim.01na@gmail.com',
     linkedin: 'linkedin.com/in/elyakim-nahampun-48015a429',
     linkedinUrl: 'https://www.linkedin.com/in/elyakim-nahampun-48015a429/',
     location: 'Patumbak, Deli Serdang, Sumatera Utara',
