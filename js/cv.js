@@ -11,7 +11,7 @@
   var KEY = 'cv-builder-v1';
 
   /* ---------- state ---------- */
-  var S = { p: 'umum', role: '', company: '', len: 'full', jd: '', links: true };
+  var S = { p: 'umum', role: '', company: '', len: 'full', jd: '', links: true, lang: 'id', photo: '' };
   try {
     var saved = JSON.parse(W.localStorage.getItem(KEY) || 'null');
     if (saved && !printOnly) for (var k in saved) if (k in S) S[k] = saved[k];
@@ -20,6 +20,9 @@
   if (qs.has('role')) S.role = qs.get('role');
   if (qs.has('company')) S.company = qs.get('company');
   if (qs.get('len') === 'short') S.len = 'short';
+  if (qs.get('lang') === 'en' || qs.get('lang') === 'id') S.lang = qs.get('lang');
+  if (qs.has('photo')) S.photo = qs.get('photo') === '1' ? 'formal' : qs.get('photo');
+  if (S.photo !== 'formal' && S.photo !== 'bebas') S.photo = '';
   if (printOnly) { S.jd = ''; S.links = qs.get('links') !== '0'; }
 
   /* ---------- analisis lowongan ---------- */
@@ -53,76 +56,94 @@
     return groups;
   }
 
+  /* ---------- bahasa ---------- */
+  function EN() { return S.lang === 'en' ? W.CV_EN : null; }
+  function mo(t) {
+    var e = EN(); if (!e) return t;
+    return t.replace(/[A-Za-z]+/g, function (w) { return e.months[w] || w; });
+  }
+  function sk(n) { var e = EN(); return e && e.skills[n] ? e.skills[n] : n; }
+
   /* ---------- render CV ---------- */
   function emph(t) {
-    return h(t).replace(/(±?\d[\d.,]*\s?(?:pcs\/jam|data pemilih|data))/g, '<b>$1</b>');
+    return h(t).replace(/(±?\d[\d.,]*\s?(?:pcs\/jam|pcs\/hour|data pemilih|voter records|data))/g, '<b>$1</b>');
   }
   function jobHtml(id, prof, short) {
-    var e = C.exp[id], ids = (prof.bullets[id] || []);
+    var e = C.exp[id], ids = (prof.bullets[id] || []), T = EN() && EN().exp[id];
     if (!ids.length) return '';
     var max = short ? (id === 'imk' ? 1 : 3) : (id === 'imk' ? 2 : 5);
-    var lis = ids.slice(0, max).map(function (b) { return '<li>' + emph(e.b[b]) + '</li>'; }).join('');
-    return '<div class="item"><div class="row"><b class="role">' + h(e.role) + '</b>' + (e.period ? '<span class="dt">' + h(e.period) + '</span>' : '') +
-      '</div><div class="org">' + h(e.org) + '</div><ul>' + lis + '</ul></div>';
+    var lis = ids.slice(0, max).map(function (b) { return '<li>' + emph((T || e).b[b]) + '</li>'; }).join('');
+    return '<div class="item"><div class="row"><b class="role">' + h((T || e).role) + '</b>' + (e.period ? '<span class="dt">' + h(mo(e.period)) + '</span>' : '') +
+      '</div><div class="org">' + h((T || e).org) + '</div><ul>' + lis + '</ul></div>';
   }
 
   function render() {
     var prof = C.profiles[S.p], short = S.len === 'short', P = C.person;
     var an = analyse(S.jd);
-    var title = S.role.trim() || prof.title;
+    var E = EN(), UI = E ? E.ui : { summary: 'Ringkasan Profil', exp: 'Pengalaman Kerja', org: 'Pengalaman Organisasi', edu: 'Pendidikan', proj: 'Proyek', skill: 'Keterampilan', cert: 'Sertifikasi', award: 'Penghargaan' };
+    var title = S.role.trim() || (E ? E.title : prof.title);
+    D.documentElement.lang = S.lang;
 
     function nw(x, url) {
       var t = h(x);
       return '<span class="nw">' + (url ? '<a href="' + h(url) + '">' + t + '</a>' : t) + '</span>';
     }
-    var l1 = [nw(P.phone), nw(P.email, 'mailto:' + P.email), nw(P.location)].join('<i>|</i>');
+    var l1 = [nw(P.phone), nw(P.email, 'mailto:' + P.email), nw(E ? E.location : P.location)].join('<i>|</i>');
     var l2 = [P.linkedin ? nw(P.linkedin, P.linkedinUrl) : '', P.site ? nw(P.site, P.siteUrl) : ''].filter(Boolean).join('<i>|</i>');
-    var out = '<header><h1>' + h(P.name) + '</h1><div class="hl">' + h(title) + '</div><div class="ct">' + l1 + '</div>' + (l2 ? '<div class="ct">' + l2 + '</div>' : '') + '</header>';
+    var txt = '<div class="hd"><h1>' + h(P.name) + '</h1><div class="hl">' + h(title) + '</div><div class="ct">' + l1 + '</div>' + (l2 ? '<div class="ct">' + l2 + '</div>' : '') + '</div>';
+    var LB = E ? ['Address', 'Phone', 'Email', 'LinkedIn', 'Portfolio'] : ['Alamat', 'Telepon', 'Email', 'LinkedIn', 'Portofolio'];
+    var rows = [[LB[0], h(E ? E.location : P.location)], [LB[1], h(P.phone)], [LB[2], '<a href="mailto:' + h(P.email) + '">' + h(P.email) + '</a>'],
+      [LB[3], '<a href="' + h(P.linkedinUrl) + '">' + h(P.linkedin) + '</a>'], [LB[4], '<a href="' + h(P.siteUrl) + '">' + h(P.site) + '</a>']];
+    var txt2 = '<div class="hd"><h1>' + h(P.name) + '</h1><div class="hl">' + h(title) + '</div><div class="kv">' +
+      rows.map(function (r) { return '<span class="k">' + r[0] + '</span><span class="c">:</span><span class="v">' + r[1] + '</span>'; }).join('') + '</div></div>';
+    var out = S.photo
+      ? '<header class="hasph"><img class="ph" src="img/foto-' + S.photo + '.jpg" alt="Foto" onerror="this.style.display=\'none\'">' + txt2 + '</header>'
+      : '<header>' + txt + '</header>';
 
-    out += '<section class="sum"><h2>Ringkasan Profil</h2><p>' + h(prof.summary) + '</p></section>';
+    out += '<section class="sum"><h2>' + UI.summary + '</h2><p>' + h(E ? E.summary[S.p] : prof.summary) + '</p></section>';
 
     var secs = {
       exp: function () {
         var j = jobHtml('lazada', prof, short) + jobHtml('kpu', prof, short);
-        return j ? '<section><h2>Pengalaman Kerja</h2>' + j + '</section>' : '';
+        return j ? '<section><h2>' + UI.exp + '</h2>' + j + '</section>' : '';
       },
       org: function () {
         var j = jobHtml('imk', prof, short);
-        return j ? '<section><h2>Pengalaman Organisasi</h2>' + j + '</section>' : '';
+        return j ? '<section><h2>' + UI.org + '</h2>' + j + '</section>' : '';
       },
       edu: function () {
-        var e = C.edu;
-        return '<section><h2>Pendidikan</h2><div class="item"><div class="row"><b>' + h(e.degree) + ', ' + h(e.school) + '</b><span>' + h(e.period) + '</span></div><div class="org">' + h(e.note) + '</div></div></section>';
+        var e = C.edu, T = E ? E.edu : e;
+        return '<section><h2>' + UI.edu + '</h2><div class="item"><div class="row"><b>' + h(T.degree) + ', ' + h(e.school) + '</b><span>' + h(mo(e.period)) + '</span></div><div class="org">' + h(T.note) + '</div></div></section>';
       },
       proj: function () {
         if (!prof.projects.length) return '';
         var list = prof.projects.slice(0, short ? 2 : 9).map(function (id) {
-          var p = C.projects[id];
+          var p = C.projects[id], T = E ? E.projects[id] : p;
           var link = (S.links && p.url) ? ' <span class="u"><a href="' + h(p.url) + '">' + h(p.url.replace(/^https?:\/\//, '')) + '</a></span>' : '';
-          return '<div class="item"><div class="row"><b>' + h(p.name) + '</b></div><div class="org">' + h(p.stack) + link + '</div>' +
-            '<ul><li>' + h(short ? p.short : p.line) + '</li></ul></div>';
+          return '<div class="item"><div class="row"><b>' + h(T.name) + '</b></div><div class="org">' + h(p.stack) + link + '</div>' +
+            '<ul><li>' + h(short ? T.short : T.line) + '</li></ul></div>';
         }).join('');
-        return '<section><h2>Proyek</h2>' + list + '</section>';
+        return '<section><h2>' + UI.proj + '</h2>' + list + '</section>';
       },
       skill: function () {
         var g = pickSkills(prof, an.matched, short);
-        return '<section><h2>Keterampilan</h2>' + g.map(function (x) {
-          return '<p class="sk"><b>' + h(x.name) + ':</b> ' + x.items.map(h).join(', ') + '</p>';
+        return '<section><h2>' + UI.skill + '</h2>' + g.map(function (x) {
+          return '<p class="sk"><b>' + h(E ? E.skillGroups[C.skillGroups.indexOf(x.name)] : x.name) + ':</b> ' + x.items.map(function (n) { return h(sk(n)); }).join(', ') + '</p>';
         }).join('') + '</section>';
       },
       cert: function () {
         var ids = prof.certs.slice(0, short ? 4 : 9);
-        return '<section><h2>Sertifikasi</h2><ul>' + ids.map(function (c) { return '<li>' + h(C.certs[c]) + '</li>'; }).join('') + '</ul></section>';
+        return '<section><h2>' + UI.cert + '</h2><ul>' + ids.map(function (c) { return '<li>' + h((E ? E.certs : C.certs)[c]) + '</li>'; }).join('') + '</ul></section>';
       },
       award: function () {
-        return '<section><h2>Penghargaan</h2><ul>' + prof.awards.map(function (a) { return '<li>' + h(C.awards[a]) + '</li>'; }).join('') + '</ul></section>';
+        return '<section><h2>' + UI.award + '</h2><ul>' + prof.awards.map(function (a) { return '<li>' + h((E ? E.awards : C.awards)[a]) + '</li>'; }).join('') + '</ul></section>';
       }
     };
     /* Mode Ringkas: kalau lebih dari 1 halaman, buang bagian paling tidak penting satu per satu */
     var USABLE = (297 - 28) / 25.4 * 96, PAD = 2 * 14 / 25.4 * 96;
     var droppable = prof.sections.filter(function (s) { return ['org', 'proj', 'award'].indexOf(s) > -1; }).reverse();
     var drop = 0, dropped = [];
-    $('cv').className = short ? 'short' : '';
+    $('cv').className = (short ? 'short' : '') + (S.photo ? ' pm' : '');
     for (;;) {
       var body = '';
       prof.sections.forEach(function (s) { if (dropped.indexOf(s) < 0) body += secs[s](); });
@@ -134,7 +155,7 @@
 
     /* judul dokumen = nama file PDF */
     var slug = function (s) { return s.replace(/[^A-Za-z0-9]+/g, '_').replace(/^_|_$/g, ''); };
-    D.title = ['CV', 'Elyakim_Nahampun', slug(S.role.trim() || prof.file), slug(S.company)].filter(Boolean).join('_');
+    D.title = ['CV', 'Elyakim_Nahampun', slug(S.role.trim() || prof.file), slug(S.company), S.lang === 'en' ? 'EN' : ''].filter(Boolean).join('_');
 
     if (!printOnly) {
       var sheet = $('cv');
@@ -159,13 +180,14 @@
   function sync() {
     $('p').value = S.p; $('role').value = S.role; $('company').value = S.company;
     $('len').value = S.len; $('jd').value = S.jd; $('links').checked = S.links;
+    $('lang').value = S.lang; $('photo').value = S.photo;
   }
   function bind() {
     $('p').innerHTML = Object.keys(C.profiles).map(function (k) { return '<option value="' + k + '">' + h(C.profiles[k].label) + '</option>'; }).join('');
     sync();
-    ['p', 'role', 'company', 'len', 'jd', 'links'].forEach(function (id) {
+    ['p', 'role', 'company', 'len', 'jd', 'links', 'lang', 'photo'].forEach(function (id) {
       var el = $(id);
-      el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', function () {
+      el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', function () {
         S[id] = el.type === 'checkbox' ? el.checked : el.value;
         save(); render();
       });
