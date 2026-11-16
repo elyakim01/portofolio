@@ -60,6 +60,29 @@ button.dl:hover{filter:brightness(1.08)}
 #cv.short .role{font-size:10.2pt}
 #cv.short li{margin-bottom:.5pt}
 
+/* ===== mode berfoto: foto kiri, kontak berlabel, biru tua ===== */
+#cv.pm{--ac:#00366d;--rule:#00366d;--ink:#111;--mute:#111;
+  font-family:Inter,Calibri,Carlito,Arial,"Liberation Sans",sans-serif;font-size:10pt;line-height:1.45}
+#cv.pm header.hasph{display:flex;align-items:flex-start;gap:16pt;text-align:left;border-bottom:0;padding-bottom:0;margin-bottom:0}
+#cv.pm .hd{flex:1;min-width:0}
+#cv.pm h1{font-size:20pt;text-transform:uppercase;line-height:1.15;letter-spacing:0}
+#cv.pm .hl{font-size:10pt;font-weight:600;margin-top:1pt;text-transform:uppercase}
+#cv.pm .ph{width:33mm;height:35mm;object-fit:cover;flex:none;border:0;border-radius:0}
+#cv.pm .kv{display:grid;grid-template-columns:auto auto 1fr;column-gap:6pt;row-gap:1.5pt;margin-top:5pt;font-size:10pt;color:#111;align-items:baseline}
+#cv.pm .kv .k{font-weight:700;color:#111}
+#cv.pm .kv .v{overflow-wrap:anywhere}
+#cv.pm a{color:#111}
+#cv.pm section{margin-top:11pt}
+#cv.pm header + section{margin-top:9pt}
+#cv.pm h2{font-size:11pt;border-bottom:1pt solid var(--ac);padding-bottom:2pt;margin-bottom:6pt}
+#cv.pm .sum p,#cv.pm li{text-align:justify}
+#cv.pm .org{font-weight:600}
+#cv.short.pm{font-size:9.4pt;line-height:1.35}
+#cv.short.pm .ph{width:28mm;height:30mm}
+#cv.short.pm h1{font-size:18pt}
+#cv.short.pm .kv{font-size:9.4pt;margin-top:3pt}
+#cv.short.pm section{margin-top:7pt}
+
 @media (max-width:980px){
   .app{grid-template-columns:1fr;padding:14px}
   .panel{position:static}
