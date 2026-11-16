@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>CV Elyakim Nahampun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="css/cv.css">
 </head>
 <body>
@@ -25,6 +28,12 @@
     <label for="company">Nama perusahaan (opsional, untuk nama file)</label>
     <input type="text" id="company" placeholder="mis. Bank Artha Graha">
 
+    <label for="lang">Bahasa CV</label>
+    <select id="lang">
+      <option value="id">Indonesia</option>
+      <option value="en">English</option>
+    </select>
+
     <label for="len">Panjang</label>
     <select id="len">
       <option value="full">Lengkap (maks. 2 halaman)</option>
@@ -35,6 +44,13 @@
     <textarea id="jd" placeholder="Kata kunci lowongan yang cocok dengan datamu akan dinaikkan ke urutan depan di Keterampilan."></textarea>
 
     <label class="chk"><input type="checkbox" id="links"> Cantumkan link proyek</label>
+    <label for="photo">Foto di CV</label>
+    <select id="photo">
+      <option value="">Tanpa foto (paling aman untuk ATS)</option>
+      <option value="formal">Foto formal</option>
+      <option value="bebas">Foto bebas</option>
+    </select>
+    <p class="hint">Foto dibaca dari <b>img/foto-formal.jpg</b> dan <b>img/foto-bebas.jpg</b>. Sebagian sistem ATS kurang bagus membaca CV berfoto, jadi pakai hanya jika lowongan memintanya.</p>
 
     <button class="dl" id="dl" type="button">Unduh PDF</button>
     <p class="hint">Di dialog cetak pilih tujuan "Simpan sebagai PDF", ukuran A4, dan matikan "Header dan footer". Hasilnya PDF berisi teks asli, jadi terbaca oleh sistem ATS.</p>
@@ -46,6 +62,7 @@
 </div>
 
 <script src="js/cvdata.js"></script>
+<script src="js/cvdata-en.js"></script>
 <script src="js/cv.js"></script>
 </body>
 </html>
