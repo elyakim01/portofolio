@@ -25,7 +25,7 @@ var CV = {
   edu: {
     school: 'STMIK Triguna Dharma',
     degree: 'S1 Sistem Informasi',
-    period: 'September 2022 – Oktober 2026',
+    period: 'Juli 2022 – Juli 2026',
     note: 'IPK 3,53 (Dengan Pujian)'
   },
 
