@@ -218,10 +218,23 @@
     g.classList.add('gd');
     if (g.dataset.dir === 'up') g.classList.add('ab');
     g.innerHTML = '<button type="button" class="gb" aria-haspopup="true" aria-expanded="false">Generate <span class="gx-a" aria-hidden="true">▾</span></button>' +
-      '<div class="gmn" role="menu"><div class="gh">Generate CV (pilih bidang)</div>' + CVM.map(function (m) {
-        return '<a role="menuitem" href="cv.html?p=' + m[0] + '&amp;print=1" target="_blank" rel="noopener">' + m[1] + '<small>' + m[2] + '</small></a>';
-      }).join('') + '<a role="menuitem" href="cv.html" target="_blank" rel="noopener">Pengaturan CV lanjutan…</a><hr><div class="gh">Surat lamaran</div>' +
-      '<a role="menuitem" href="surat.html" target="_blank" rel="noopener">Generate surat lamaran<small>Isi posisi &amp; perusahaan, unduh PDF</small></a></div>';
+      '<div class="gmn" role="menu">' +
+      '<a role="menuitem" href="cv.html" target="_blank" rel="noopener">Buat CV<small>Pilih bidang, bahasa &amp; foto</small></a>' +
+      '<a role="menuitem" href="surat.html" target="_blank" rel="noopener">Buat Surat Lamaran<small>Isi posisi &amp; perusahaan</small></a></div>';
+    [].slice.call(g.querySelectorAll('.gx-lang button')).forEach(function (bt) {
+      bt.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var l = bt.dataset.l;
+        GDS.forEach(function (x) {
+          [].slice.call(x.querySelectorAll('.gx-lang button')).forEach(function (y) { y.classList.toggle('on', y.dataset.l === l); });
+          [].slice.call(x.querySelectorAll('.gmn a')).forEach(function (a) {
+            var u = a.getAttribute('href').replace(/([?&])lang=en&?/, '$1').replace(/[?&]$/, '');
+            if (l === 'en') u += (u.indexOf('?') > -1 ? '&amp;' : '?').replace('&amp;', '&') + 'lang=en';
+            a.setAttribute('href', u);
+          });
+        });
+      });
+    });
     g.querySelector('.gb').addEventListener('click', function (e) {
       e.stopPropagation();
       var on = !g.classList.contains('open');
