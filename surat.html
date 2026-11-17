@@ -14,17 +14,11 @@
     <h1>Buat surat lamaran</h1>
     <p class="sub">Isi diambil dari data portofoliomu. Isi posisi dan perusahaan, lalu unduh PDF. <a href="cv.html">Buat CV →</a></p>
 
-    <label for="p">Bidang yang dilamar</label>
-    <select id="p"></select>
-
     <label for="role">Posisi yang dilamar</label>
     <input type="text" id="role" placeholder="mis. Sekretaris Direksi">
 
     <label for="company">Nama perusahaan</label>
     <input type="text" id="company" placeholder="mis. Danareksa">
-
-    <label for="to">Ditujukan kepada</label>
-    <input type="text" id="to" placeholder="HRD / Tim Rekrutmen">
 
     <label for="place">Penempatan (opsional)</label>
     <input type="text" id="place" placeholder="mis. Semarang">
@@ -35,14 +29,12 @@
     <label for="city">Kota surat</label>
     <input type="text" id="city" placeholder="Deli Serdang">
 
-    <label for="date">Tanggal surat</label>
-    <input type="text" id="date">
-
     <label for="lang">Bahasa</label>
     <select id="lang"><option value="id">Indonesia</option><option value="en">English</option></select>
 
-    <label for="att">Lampiran yang disebut</label>
-    <input type="text" id="att" placeholder="CV, ijazah S1, transkrip nilai, SKCK, dan sertifikat pendukung">
+    <label>Lampiran yang disebut di surat</label>
+    <div id="atts"></div>
+    <input type="text" id="attx" placeholder="Lampiran lain (opsional), pisahkan dengan koma">
 
     <label for="note">Kalimat tambahan (opsional)</label>
     <textarea id="note" placeholder="mis. alasan tertarik pada perusahaan, 1–2 kalimat saja."></textarea>
