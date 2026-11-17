@@ -220,6 +220,7 @@ footer{padding:32px 0 44px;color:var(--muted);font-size:.84rem;display:flex;just
 .gmn a{display:flex;flex-direction:column;padding:9px 12px;border-radius:10px;font-size:.88rem;font-weight:600;color:var(--text);line-height:1.35}
 .gmn a small{font-weight:400;color:var(--muted);font-size:.76rem}
 .gmn a:hover,.gmn a:focus-visible{background:var(--soft)}
+.gmn .gh{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:6px 12px 2px}
 .gmn hr{border:0;border-top:1px solid var(--line);margin:4px 6px}
 footer{align-items:center}
 nav a.cv{white-space:nowrap}
