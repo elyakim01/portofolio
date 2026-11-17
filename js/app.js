@@ -217,10 +217,11 @@
   GDS.forEach(function (g) {
     g.classList.add('gd');
     if (g.dataset.dir === 'up') g.classList.add('ab');
-    g.innerHTML = '<button type="button" class="gb" aria-haspopup="true" aria-expanded="false"><span class="gx-l">Generate </span>CV <span class="gx-a" aria-hidden="true">▾</span></button>' +
-      '<div class="gmn" role="menu">' + CVM.map(function (m) {
+    g.innerHTML = '<button type="button" class="gb" aria-haspopup="true" aria-expanded="false">Generate <span class="gx-a" aria-hidden="true">▾</span></button>' +
+      '<div class="gmn" role="menu"><div class="gh">Generate CV (pilih bidang)</div>' + CVM.map(function (m) {
         return '<a role="menuitem" href="cv.html?p=' + m[0] + '&amp;print=1" target="_blank" rel="noopener">' + m[1] + '<small>' + m[2] + '</small></a>';
-      }).join('') + '<hr><a role="menuitem" href="cv.html" target="_blank" rel="noopener">Pengaturan lanjutan…</a></div>';
+      }).join('') + '<a role="menuitem" href="cv.html" target="_blank" rel="noopener">Pengaturan CV lanjutan…</a><hr><div class="gh">Surat lamaran</div>' +
+      '<a role="menuitem" href="surat.html" target="_blank" rel="noopener">Generate surat lamaran<small>Isi posisi &amp; perusahaan, unduh PDF</small></a></div>';
     g.querySelector('.gb').addEventListener('click', function (e) {
       e.stopPropagation();
       var on = !g.classList.contains('open');
