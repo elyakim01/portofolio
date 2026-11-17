@@ -163,6 +163,7 @@
       var note = '<b>Perkiraan: ' + pages + ' halaman.</b>';
       if (pages > 2) note += ' Terlalu panjang. Pilih "Ringkas".';
       if (dropped.length) note += '<br><small>Agar muat 1 halaman, bagian ini tidak ditampilkan: ' + dropped.map(function (s) { return { org: 'Organisasi', proj: 'Proyek', award: 'Penghargaan' }[s]; }).join(', ') + '.</small>';
+      if (S.lang === 'en' && !W.CV_EN) note += '<br><span class="w" style="display:block;margin-top:6px">Terjemahan Inggris belum termuat. Pastikan file <b>js/cvdata-en.js</b> sudah di-upload, lalu refresh keras (Ctrl+Shift+R).</span>';
       $('pg').innerHTML = note;
       var r = '';
       if (S.jd.trim()) {
