@@ -8,12 +8,12 @@
               en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] };
   function today(lang) { var d = new Date(); return lang === 'en' ? MON.en[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() : d.getDate() + ' ' + MON.id[d.getMonth()] + ' ' + d.getFullYear(); }
 
-  var S = { p: 'admin', role: '', company: '', to: '', place: '', src: '', city: '', date: '', lang: 'id', attx: '', atts: { cv: true, ijazah: true, transkrip: false, ktp: false, kk: false, skck: false, sehat: false, sertifikat: true }, note: '', data: true, will: false, honest: false, sig: true };
+  var S = { p: 'umum', role: '', company: '', to: '', place: '', src: '', city: '', date: '', lang: 'id', attx: '', atts: { cv: true, ijazah: true, transkrip: false, ktp: false, kk: false, skck: false, sehat: false, sertifikat: true }, note: '', data: true, will: false, honest: false, sig: true };
   try { var sv = JSON.parse(W.localStorage.getItem(KEY) || 'null'); if (sv) for (var k in sv) if (k in S) S[k] = sv[k]; } catch (e) {}
   var AT = [['cv', 'CV', 'my CV'], ['ijazah', 'ijazah S1', 'bachelor\'s diploma'], ['transkrip', 'transkrip nilai', 'academic transcript'], ['ktp', 'KTP', 'ID card (KTP)'],
     ['kk', 'Kartu Keluarga (KK)', 'family card (KK)'], ['skck', 'SKCK', 'police clearance certificate (SKCK)'], ['sehat', 'surat keterangan sehat', 'health certificate'], ['sertifikat', 'sertifikat pendukung', 'supporting certificates']];
   function joinList(a, en) { if (a.length < 2) return a.join(''); return a.slice(0, -1).join(', ') + (en ? ', and ' : ', dan ') + a[a.length - 1]; }
-  if (!S.date) S.date = today(S.lang);
+  S.to = ''; S.date = today(S.lang);
 
   var T = {
     id: { to: 'HRD / Tim Rekrutmen', city: 'Deli Serdang' },
@@ -82,16 +82,14 @@
   }
 
   function save() { try { W.localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
-  var ids = ['p', 'role', 'company', 'to', 'place', 'src', 'city', 'date', 'lang', 'attx', 'note', 'data', 'will', 'honest', 'sig'];
-  $('p').innerHTML = Object.keys(L.fit).map(function (k) { return '<option value="' + k + '">' + ({ umum: 'Umum (semua bidang)', admin: 'Administrasi & Pengelolaan Data', logistik: 'Warehouse, Logistik & Inventory', it: 'IT, Web Developer & Sistem Informasi', frontliner: 'Bank (Teller, CS)' })[k] + '</option>'; }).join('');
-  var qs = new URLSearchParams(W.location.search);
-  if (qs.get('p') && L.fit[qs.get('p')]) S.p = qs.get('p');
+  var ids = ['role', 'company', 'place', 'src', 'city', 'lang', 'attx', 'note', 'data', 'will', 'honest', 'sig'];
+  S.p = 'umum';
   ids.forEach(function (id) {
     var el = $(id);
     if (el.type === 'checkbox') el.checked = S[id]; else el.value = S[id];
     el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', function () {
       S[id] = el.type === 'checkbox' ? el.checked : el.value;
-      if (id === 'lang') { S.date = today(S.lang); $('date').value = S.date; }
+      if (id === 'lang') S.date = today(S.lang);
       save(); render();
     });
   });
