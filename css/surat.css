@@ -1,0 +1,22 @@
+/* lembar surat lamaran: A4, satu halaman, format surat resmi */
+#sr{width:210mm;min-height:297mm;margin:0 auto;background:#fff;padding:18mm 22mm 14mm;box-shadow:0 8px 30px rgba(20,40,30,.12);
+  font-family:"Times New Roman","Liberation Serif",Times,serif;font-size:11pt;line-height:1.4;color:#000}
+#sr p{margin:0 0 7pt;text-align:justify}
+#sr .r{text-align:right}
+#sr .t0{margin-bottom:0}
+#sr table{border-collapse:collapse;margin:2pt 0 8pt}
+#sr td{vertical-align:top;padding:1pt 0}
+#sr td:first-child{width:46mm}
+#sr td:nth-child(2){width:5mm}
+#sr .meta td:first-child{width:24mm}
+#sr a{color:#000;text-decoration:underline}
+#sr .sg{display:block;height:56pt;margin:2pt 0 -4pt 6pt}
+#sr .sgb{height:50pt}
+@page{size:A4;margin:16mm 22mm 14mm}
+@media print{
+  body{background:#fff}
+  .panel{display:none!important}
+  .app{display:block;padding:0;max-width:none}
+  .stage{overflow:visible}
+  #sr{width:auto;min-height:0;margin:0;padding:0;box-shadow:none}
+}
