@@ -67,7 +67,7 @@ button.dl:hover{filter:brightness(1.08)}
 #cv.pm .hd{flex:1;min-width:0}
 #cv.pm h1{font-size:20pt;text-transform:uppercase;line-height:1.15;letter-spacing:0}
 #cv.pm .hl{font-size:10pt;font-weight:600;margin-top:1pt;text-transform:uppercase}
-#cv.pm .ph{width:33mm;height:35mm;object-fit:cover;flex:none;border:0;border-radius:0}
+#cv.pm .ph{width:33mm;height:44mm;object-fit:cover;object-position:50% 12%;flex:none;border:0;border-radius:0}
 #cv.pm .kv{display:grid;grid-template-columns:auto auto 1fr;column-gap:6pt;row-gap:1.5pt;margin-top:5pt;font-size:10pt;color:#111;align-items:baseline}
 #cv.pm .kv .k{font-weight:700;color:#111}
 #cv.pm .kv .v{overflow-wrap:anywhere}
@@ -78,7 +78,7 @@ button.dl:hover{filter:brightness(1.08)}
 #cv.pm .sum p,#cv.pm li{text-align:justify}
 #cv.pm .org{font-weight:600}
 #cv.short.pm{font-size:9.4pt;line-height:1.35}
-#cv.short.pm .ph{width:28mm;height:30mm}
+#cv.short.pm .ph{width:27mm;height:36mm}
 #cv.short.pm h1{font-size:18pt}
 #cv.short.pm .kv{font-size:9.4pt;margin-top:3pt}
 #cv.short.pm section{margin-top:7pt}
