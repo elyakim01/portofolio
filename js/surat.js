@@ -13,6 +13,7 @@
   var AT = [['cv', 'CV', 'my CV'], ['ijazah', 'ijazah S1', 'bachelor\'s diploma'], ['transkrip', 'transkrip nilai', 'academic transcript'], ['ktp', 'KTP', 'ID card (KTP)'],
     ['kk', 'Kartu Keluarga (KK)', 'family card (KK)'], ['skck', 'SKCK', 'police clearance certificate (SKCK)'], ['sehat', 'surat keterangan sehat', 'health certificate'], ['sertifikat', 'sertifikat pendukung', 'supporting certificates']];
   function joinList(a, en) { if (a.length < 2) return a.join(''); return a.slice(0, -1).join(', ') + (en ? ', and ' : ', dan ') + a[a.length - 1]; }
+  if (/[?&]lang=en/.test(W.location.search)) S.lang = 'en'; else if (/[?&]lang=id/.test(W.location.search)) S.lang = 'id';
   S.to = ''; S.date = today(S.lang);
 
   var T = {
@@ -20,8 +21,19 @@
     en: { to: 'HR / Recruitment Team', city: 'Deli Serdang' }
   };
 
+  /* bidang dikenali otomatis dari nama posisi, jadi tidak perlu memilih */
+  function detect(role) {
+    var r = ' ' + role.toLowerCase() + ' ';
+    if (/gudang|warehouse|logisti|inventory|stok|stock|supply|picker|packing|ekspedisi/.test(r)) return 'logistik';
+    if (/teller|customer service|customer care|frontliner|front liner|kasir|resepsionis|layanan pelanggan|\bcs\b/.test(r)) return 'frontliner';
+    if (/\bit\b|programmer|developer|software|website|\bweb\b|sistem informasi|information system|teknologi|network|jaringan|helpdesk|help desk|IT support|data analyst|analis data|database|aplikasi/i.test(r)) return 'it';
+    if (/admin|sekretaris|secretary|staff umum|arsip|dokumen|data entry|operator|clerk|back office|officer/.test(r)) return 'admin';
+    return 'umum';
+  }
+  var NAMA = { umum: 'Umum', admin: 'Administrasi & data', logistik: 'Gudang & logistik', it: 'IT & web', frontliner: 'Layanan & perbankan' };
+
   function render() {
-    var en = S.lang === 'en', t = T[S.lang], pr = S.p;
+    var en = S.lang === 'en', t = T[S.lang], pr = detect(S.role);
     var role = S.role.trim() || (en ? L.roleEn[pr] : L.role[pr]);
     var co = S.company.trim(), place = S.place.trim(), to = S.to.trim() || t.to, city = S.city.trim() || t.city;
     var chosen = AT.filter(function (x) { return S.atts[x[0]]; }).map(function (x) { return en ? x[2] : x[1]; });
@@ -62,6 +74,7 @@
       fit[fit.length - 1] += en ? ' I do not yet have direct experience as ' + h(role) + ', but I am ready to learn quickly and carefully.'
                                 : ' Saya memang belum memiliki pengalaman langsung sebagai ' + h(role) + ', namun saya siap belajar dengan sungguh-sungguh.';
     }
+    if (pr === 'it') fit[fit.length - 1] += en ? ' Samples of my work are available in my portfolio at ' + P.site + '.' : ' Contoh hasil kerja saya dapat dilihat di portofolio saya: ' + P.site + '.';
     fit.forEach(function (x) { o += '<p>' + x.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</p>'; });
     if (S.note.trim()) o += '<p>' + h(S.note.trim()) + '</p>';
     if (S.will && place) o += '<p>' + (en ? 'I am willing to be placed in ' + h(place) + '.' : 'Saya bersedia ditempatkan di ' + h(place) + '.') + '</p>';
@@ -78,12 +91,14 @@
     var over = sr.scrollHeight - PAD > USABLE;
     D.title = ['Surat_Lamaran', 'Elyakim_Nahampun', role, co, en ? 'EN' : ''].map(function (s) { return String(s).trim().replace(/[^A-Za-z0-9]+/g, '_').replace(/^_|_$/g, ''); }).filter(Boolean).join('_');
     D.documentElement.lang = S.lang;
-    $('pg').innerHTML = over ? '<p class="w">Surat lebih dari 1 halaman. Matikan "Sertakan data diri" atau perpendek kalimat tambahan.</p>' : '<b>Muat 1 halaman.</b>' + (fs < 11 ? ' <small>Huruf dikecilkan ke ' + fs + 'pt.</small>' : '');
+    $('pg').innerHTML = '<p>Isi surat disesuaikan otomatis: <b>' + NAMA[pr] + '</b></p>' + (over ? '<p class="w">Surat lebih dari 1 halaman. Matikan "Sertakan data diri" atau perpendek kalimat tambahan.</p>' : '<b>Muat 1 halaman.</b>' + (fs < 11 ? ' <small>Huruf dikecilkan ke ' + fs + 'pt.</small>' : ''));
   }
 
   function save() { try { W.localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
   var ids = ['role', 'company', 'place', 'src', 'city', 'lang', 'attx', 'note', 'data', 'will', 'honest', 'sig'];
   S.p = 'umum';
+  var qs = new URLSearchParams(W.location.search);
+  if (qs.get('lang') === 'en' || qs.get('lang') === 'id') { S.lang = qs.get('lang'); S.date = today(S.lang); $('lang').value = S.lang; }
   ids.forEach(function (id) {
     var el = $(id);
     if (el.type === 'checkbox') el.checked = S[id]; else el.value = S[id];
