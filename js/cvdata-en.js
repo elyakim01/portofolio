@@ -1,124 +1,251 @@
 /* ==========================================================================
-   TERJEMAHAN BAHASA INGGRIS untuk generator CV (cv.html?lang=en).
-   Strukturnya mengikuti cvdata.js. Kalau kamu mengubah kalimat di cvdata.js,
-   ubah juga padanannya di sini. Fakta tidak boleh berbeda antar bahasa.
+   DATA CV – dipakai oleh cv.html untuk membuat CV ATS otomatis.
+   Fakta di sini harus selaras dengan data.js (PORTFOLIO). Kalau kamu mengubah
+   pengalaman/proyek/sertifikat di data.js, sesuaikan juga kalimatnya di sini.
+   File ini juga berisi kontak, ringkasan, dan PILIHAN apa yang ditonjolkan
+   untuk tiap bidang lamaran.
+
+   Aturan: jangan menulis hal yang tidak benar-benar kamu miliki.
+   Generator hanya MEMILIH dan MENGURUTKAN dari data ini, tidak mengarang.
    ========================================================================== */
 
-var CV_EN = {
-  ui: {
-    summary: 'Professional Summary', exp: 'Work Experience', org: 'Organizational Experience',
-    edu: 'Education', proj: 'Projects', skill: 'Skills', cert: 'Certifications', award: 'Awards'
-  },
-  title: 'Bachelor of Information Systems Graduate',
-  location: 'Patumbak, Deli Serdang, North Sumatra, Indonesia',
-  months: { Januari: 'January', Februari: 'February', Maret: 'March', April: 'April', Mei: 'May', Juni: 'June', Juli: 'July',
-            Agustus: 'August', September: 'September', Oktober: 'October', November: 'November', Desember: 'December' },
-  edu: { degree: 'Bachelor of Information Systems', note: 'GPA 3.53 (Cum Laude)' },
+var CV = {
 
+  person: {
+    name: 'Elyakim Nahampun, S.Kom.',
+    phone: '0877-5020-6133',
+    email: 'elyakim.01na@gmail.com',
+    linkedin: 'linkedin.com/in/elyakim-nahampun-48015a429',
+    linkedinUrl: 'https://www.linkedin.com/in/elyakim-nahampun-48015a429/',
+    location: 'Patumbak, Deli Serdang, Sumatera Utara',
+    site: 'portofolio-one-omega-14.vercel.app',
+    siteUrl: 'https://portofolio-one-omega-14.vercel.app'
+  },
+
+  edu: {
+    school: 'STMIK Triguna Dharma',
+    degree: 'S1 Sistem Informasi',
+    period: 'Juli 2022 – Juli 2026',
+    note: 'IPK 3,53 (Dengan Pujian)'
+  },
+
+  /* ---------- Pengalaman: semua butir yang tersedia (id → kalimat) ---------- */
   exp: {
     lazada: {
       role: 'Warehouse Operations Staff',
       org: 'Lazada Indonesia, Tanjung Morawa, Deli Serdang',
+      period: 'Februari 2025 – Juni 2026',
       b: {
-        inbound:  'Received inbound goods using a laptop and verified that physical items matched receiving records.',
-        putaway:  'Performed putaway to inventory locations; averaged ±700 pcs/hour (company target 500 pcs/hour, peak 800 pcs/hour).',
-        stock:    'Located and moved stock to keep item locations and quantities accurate.',
-        cc:       'Conducted monthly cycle counts to reconcile physical stock with system data.',
-        outbound: 'Processed outbound orders (picking, packing, handover).',
-        admin:    'Organized goods and supported warehouse administration.',
-        team:     'Coordinated with the team to keep operations running smoothly.',
-        sup:      'Stepped in as supervisor (RW) when needed.'
+        inbound:  'Menerima barang inbound menggunakan laptop, memastikan barang fisik sesuai data penerimaan.',
+        putaway:  'Melakukan putaway ke lokasi inventory; capaian rata-rata ±700 pcs/jam (target perusahaan 500 pcs/jam, tertinggi 800 pcs/jam).',
+        stock:    'Mencari dan memindahkan stok untuk menjaga ketepatan lokasi dan jumlah barang.',
+        cc:       'Melakukan cycle count bulanan untuk mencocokkan stok fisik dengan data sistem.',
+        outbound: 'Memproses outbound (picking, packing, handover) sesuai pesanan.',
+        admin:    'Menata barang dan mendukung administrasi gudang.',
+        team:     'Berkoordinasi dengan tim untuk menjaga kelancaran operasional.',
+        sup:      'Pernah menggantikan peran pengawas (RW) saat dibutuhkan.'
       }
     },
     kpu: {
-      role: 'Member, Voting Committee (PPS)',
-      org: 'General Elections Commission (KPU) of Deli Serdang Regency (Patumbak Kampung Village)',
+      role: 'Anggota Panitia Pemungutan Suara (PPS)',
+      org: 'KPU Kabupaten Deli Serdang (Desa Patumbak Kampung)',
+      period: 'Juni 2024 – Januari 2025',
       b: {
-        data:   'Managed and updated 15,927 voter records at village level.',
-        verif:  'Conducted field verification surveys and sorted matching and non-matching records (deceased voters, relocations, changes to family cards).',
-        koor:   'Coordinated with KPU, sub-district election committee (PPK), election supervisors (Panwas), polling station officers (KPPS), security officers, and local government.',
-        sos:    'Delivered public outreach to the community in the assigned area.',
-        doc:    'Handled documents and administration for committee activities.',
-        rekrut: 'Took part in recruiting, selecting, appointing, and inaugurating polling station (KPPS) members.'
+        data:   'Mengelola dan memutakhirkan 15.927 data pemilih di tingkat desa/kelurahan.',
+        verif:  'Melakukan verifikasi faktual melalui survei lapangan, memilah data yang sesuai dan tidak sesuai (pemilih meninggal dunia, pindah domisili, perubahan Kartu Keluarga).',
+        koor:   'Berkoordinasi dengan KPU, PPK, Panwas, KPPS, petugas keamanan, dan pemerintah setempat.',
+        sos:    'Melaksanakan sosialisasi kepada masyarakat umum di wilayah tugas.',
+        doc:    'Mengelola dokumen dan administrasi kegiatan.',
+        rekrut: 'Terlibat dalam rekrutmen, seleksi, penetapan, dan pelantikan anggota KPPS.'
       }
     },
     imk: {
-      role: 'Head of Service Division',
-      org: 'Christian Student Association (IMK), STMIK Triguna Dharma',
+      role: 'Kepala Bidang Pelayanan',
+      org: 'Ikatan Mahasiswa Kristen, STMIK Triguna Dharma',
+      period: '',
       b: {
-        koor:  'Coordinated and ran activities of the service division.',
-        kolab: 'Collaborated with other campuses to hold worship events.',
-        acara: 'Involved in organizing large events such as Easter.'
+        koor:  'Mengoordinasikan dan melaksanakan kegiatan bidang pelayanan.',
+        kolab: 'Berkolaborasi dengan kampus lain dalam penyelenggaraan kegiatan ibadah.',
+        acara: 'Terlibat dalam penyelenggaraan acara besar seperti Paskah.'
       }
     }
   },
 
+  /* ---------- Proyek ---------- */
   projects: {
     desa: {
-      name: 'Patumbak Kampung Village Administration Website',
-      line: 'Village administration information system: residents data management, correspondence, administrative documents, and public complaints. Built as a team.',
-      short: 'Village administration and services information system (residents data, correspondence, complaints).'
+      name: 'Website Administrasi Desa Patumbak Kampung',
+      stack: 'PHP, MySQL, JavaScript, HTML, CSS, Bootstrap',
+      line: 'Sistem informasi administrasi desa: pengelolaan data penduduk, surat-menyurat, dokumen administrasi, dan pengaduan masyarakat. Dikerjakan bersama tim.',
+      short: 'Sistem informasi administrasi dan layanan desa (data penduduk, surat-menyurat, pengaduan).',
+      url: 'https://desapatumbakkampung.infinityfreeapp.com/?i=1'
     },
     pakar: {
-      name: 'Expert System for Fatty Liver Diagnosis (Thesis)',
-      line: 'Web-based expert system supporting early diagnosis of fatty liver disease using the Tsukamoto fuzzy method.',
-      short: 'Fatty liver diagnosis expert system using the Tsukamoto fuzzy method.'
+      name: 'Sistem Pakar Diagnosis Perlemakan Hati (Skripsi)',
+      stack: 'PHP, MySQL, HTML, CSS, JavaScript, Fuzzy Tsukamoto',
+      line: 'Sistem pakar berbasis web untuk membantu diagnosis awal penyakit perlemakan hati menggunakan metode Fuzzy Tsukamoto.',
+      short: 'Sistem pakar diagnosis perlemakan hati dengan metode Fuzzy Tsukamoto.',
+      url: ''
     }
   },
 
+  /* ---------- Sertifikasi (satu baris per kelompok) ---------- */
   certs: {
     gads:  'Google Ads Search Certification, Google (2026)',
     gana:  'Google Analytics Certification, Google (2026)',
     ibm:   'IBM SkillsBuild: Data Fundamentals; Project Management Fundamentals; Getting Started with Generative AI (2026)',
     web:   'Web Programming Competency Certificate, STMIK Triguna Dharma (2025)',
-    toefl: 'TOEFL Prediction Test, TOEFL Academy, score 627 (2026)',
-    excel: 'Microsoft Excel: Excel Fundamentals (With Distinction, score 90%), Science of Apps; Excel Dashboard for Beginners, Simplilearn (2026)',
-    gnik:  'GNIK Essential Skills, National Internship Program: Digital Literacy (100), Social Influence (100), Self Efficacy (90) (2026)'
+    toefl: 'TOEFL Prediction Test, TOEFL Academy, skor 627 (2026)',
+    xlf:   'Microsoft Excel Fundamentals (With Distinction, skor 90%), Science of Apps (2026)',
+    xld:   'Excel Dashboard for Beginners, Simplilearn SkillUP (2026)',
+    gnik:  'GNIK Essential Skills, Program Magang Nasional: Digital Literacy (100), Social Influence (100), Self Efficacy (90) (2026)'
   },
 
   awards: {
-    web: '2nd Place, Website Development Competition for the 80th Indonesian Independence Day (2025)',
-    kpu: 'Award from the KPU of North Sumatra Province (2025)'
+    web:  'Juara 2 Lomba Pengembangan Website HUT ke-80 Republik Indonesia (2025)',
+    kpu:  'Penghargaan dari KPU Provinsi Sumatera Utara (2025)'
   },
 
-  skillGroups: ['Administration & Data', 'Operations & Warehouse', 'Technology', 'Personal & Interpersonal'],
-  skills: {
-    'Microsoft Office (Word, Excel)': 'Microsoft Office (Word, Excel)',
-    'Spreadsheet': 'Spreadsheets',
-    'Data Entry': 'Data Entry',
-    'Pengelolaan Data': 'Data Management',
-    'Administrasi Dokumen': 'Document Administration',
-    'Verifikasi dan Validasi Data': 'Data Verification and Validation',
-    'Inventory Management': 'Inventory Management',
-    'Inbound & Outbound': 'Inbound & Outbound',
-    'Cycle Count / Stock Opname': 'Cycle Count / Stock Taking',
-    'Picking & Packing': 'Picking & Packing',
-    'Logistik': 'Logistics',
-    'PHP': 'PHP', 'MySQL': 'MySQL', 'JavaScript': 'JavaScript', 'HTML & CSS': 'HTML & CSS', 'Bootstrap': 'Bootstrap',
-    'Web Development': 'Web Development',
-    'Sistem Informasi': 'Information Systems',
-    'Fuzzy Logic (Tsukamoto)': 'Fuzzy Logic (Tsukamoto)',
-    'Google Analytics & Google Ads': 'Google Analytics & Google Ads',
-    'Dasar Manajemen Proyek (IBM)': 'Project Management Fundamentals (IBM)',
-    'Komunikasi': 'Communication',
-    'Pelayanan dan Sosialisasi kepada Masyarakat': 'Public Service and Community Outreach',
-    'Kerja Tim & Koordinasi': 'Teamwork & Coordination',
-    'Ketelitian': 'Attention to Detail',
-    'Manajemen Waktu': 'Time Management',
-    'Problem Solving': 'Problem Solving',
-    'Adaptif': 'Adaptability',
-    'Bahasa Inggris (TOEFL 627)': 'English (TOEFL 627)'
-  },
+  /* ---------- Kumpulan keahlian + sinonim untuk pencocokan lowongan ---------- */
+  skillGroups: ['Administrasi & Data', 'Operasional & Gudang', 'Teknologi', 'Pribadi & Interpersonal'],
+  skills: [
+    { n: 'Microsoft Office (Word, Excel)', g: 0, syn: ['microsoft office', 'ms office', 'ms excel', 'microsoft excel', 'excel', 'ms word', 'microsoft word', 'word', 'office'] },
+    { n: 'Spreadsheet', g: 0, syn: ['spreadsheet', 'google sheets', 'google spreadsheet'] },
+    { n: 'Data Entry', g: 0, syn: ['data entry', 'input data', 'entri data'] },
+    { n: 'Pengelolaan Data', g: 0, syn: ['pengelolaan data', 'manajemen data', 'data management', 'pengolahan data', 'rekap data', 'pelaporan'] },
+    { n: 'Administrasi Dokumen', g: 0, syn: ['administrasi', 'dokumen', 'arsip', 'pengarsipan', 'filing', 'surat-menyurat', 'korespondensi'] },
+    { n: 'Verifikasi dan Validasi Data', g: 0, syn: ['verifikasi', 'validasi', 'rekonsiliasi', 'pencocokan data'] },
 
-  summary: {
-    umum: 'Information Systems graduate (GPA 3.53, Cum Laude) with experience in warehouse and inventory operations at Lazada Indonesia and in voter data and administration at KPU Deli Serdang Regency. Skilled in Microsoft Office, data management, and web development (PHP, MySQL). 2nd Place in the Website Development Competition for the 80th Indonesian Independence Day (2025). Detail-oriented, disciplined, and able to work both independently and in a team.',
-    admin: 'Information Systems graduate (GPA 3.53, Cum Laude) experienced in managing and updating 15,927 voter records and handling document administration at KPU Deli Serdang Regency, and in keeping stock data accurate through cycle counts at Lazada Indonesia. Skilled in Microsoft Office, spreadsheets, and data entry. Detail-oriented, disciplined, and used to coordinating with many parties.',
-    logistik: 'Information Systems graduate (GPA 3.53) with about 1.5 years of warehouse operations experience at Lazada Indonesia: inbound, putaway, cycle count, and outbound, averaging ±700 pcs/hour (target 500 pcs/hour). Accurate with stock data, comfortable working to targets, and has stepped in as supervisor.',
-    it: 'Information Systems graduate (GPA 3.53, Cum Laude) who builds web-based systems with PHP, MySQL, JavaScript, and Bootstrap, including a village administration website and a Tsukamoto fuzzy expert system (thesis). 2nd Place in the Website Development Competition for the 80th Indonesian Independence Day (2025). Understands data management and operational processes from work experience, and holds Google Analytics and Google Ads certifications.',
-    frontliner: 'Information Systems graduate (GPA 3.53, Cum Laude) with experience dealing directly with the public through outreach and coordination at KPU Deli Serdang Regency, and with accuracy in reconciling data and stock at Lazada Indonesia. Comfortable working to targets (average ±700 pcs/hour against a 500 target), communicating with many parties, and handling data administration carefully. Served as Head of Service Division in a student organization.'
-  },
-  label: {
-    umum: 'General (all fields)', admin: 'Administration & Data Management', logistik: 'Warehouse, Logistics & Inventory',
-    it: 'IT, Web Developer & Information Systems', frontliner: 'Bank (Teller, Customer Service)'
+    { n: 'Inventory Management', g: 1, syn: ['inventory', 'inventori', 'persediaan', 'stok', 'stock', 'warehouse', 'gudang'] },
+    { n: 'Inbound & Outbound', g: 1, syn: ['inbound', 'outbound', 'receiving', 'penerimaan barang', 'pengiriman', 'dispatch', 'handover'] },
+    { n: 'Cycle Count / Stock Opname', g: 1, syn: ['cycle count', 'stock opname', 'stok opname', 'opname'] },
+    { n: 'Picking & Packing', g: 1, syn: ['picking', 'packing', 'pick and pack', 'putaway', 'put away'] },
+    { n: 'Logistik', g: 1, syn: ['logistik', 'logistics', 'supply chain', 'rantai pasok', 'operasional'] },
+
+    { n: 'PHP', g: 2, syn: ['php', 'laravel', 'codeigniter'] },
+    { n: 'MySQL', g: 2, syn: ['mysql', 'sql', 'database', 'basis data', 'mariadb'] },
+    { n: 'JavaScript', g: 2, syn: ['javascript', 'js'] },
+    { n: 'HTML & CSS', g: 2, syn: ['html', 'css', 'html5', 'css3', 'frontend', 'front-end', 'front end'] },
+    { n: 'Bootstrap', g: 2, syn: ['bootstrap'] },
+    { n: 'Web Development', g: 2, syn: ['web development', 'web developer', 'pengembangan web', 'website', 'web programming', 'full stack', 'fullstack', 'backend', 'back-end'] },
+    { n: 'Sistem Informasi', g: 2, syn: ['sistem informasi', 'information system', 'information systems', 'it support', 'analis sistem', 'system analyst'] },
+    { n: 'Fuzzy Logic (Tsukamoto)', g: 2, syn: ['fuzzy', 'sistem pakar', 'expert system', 'artificial intelligence', 'kecerdasan buatan'] },
+    { n: 'Google Analytics & Google Ads', g: 2, syn: ['google analytics', 'google ads', 'digital marketing', 'sem', 'seo', 'analytics'] },
+    { n: 'Dasar Manajemen Proyek (IBM)', g: 2, syn: ['manajemen proyek', 'project management', 'project'] },
+
+    { n: 'Komunikasi', g: 3, syn: ['komunikasi', 'communication', 'komunikatif', 'customer service', 'pelayanan pelanggan', 'layanan pelanggan', 'pelayanan', 'frontliner', 'front liner', 'teller', 'nasabah', 'pelanggan'] },
+    { n: 'Pelayanan dan Sosialisasi kepada Masyarakat', g: 3, syn: ['sosialisasi', 'pelayanan', 'layanan', 'masyarakat', 'customer service', 'pelanggan', 'nasabah', 'frontliner', 'teller'] },
+    { n: 'Kerja Tim & Koordinasi', g: 3, syn: ['kerja tim', 'teamwork', 'team work', 'koordinasi', 'kolaborasi', 'kerjasama', 'kerja sama'] },
+    { n: 'Ketelitian', g: 3, syn: ['teliti', 'ketelitian', 'detail', 'akurat', 'akurasi', 'cermat'] },
+    { n: 'Manajemen Waktu', g: 3, syn: ['manajemen waktu', 'time management', 'target', 'deadline', 'tenggat'] },
+    { n: 'Problem Solving', g: 3, syn: ['problem solving', 'pemecahan masalah', 'analitis', 'analytical'] },
+    { n: 'Adaptif', g: 3, syn: ['adaptif', 'adaptable', 'adaptasi', 'fleksibel', 'belajar cepat', 'fast learner'] },
+    { n: 'Bahasa Inggris (TOEFL 627)', g: 3, syn: ['bahasa inggris', 'english', 'toefl'] }
+  ],
+
+  /* Istilah yang sering diminta lowongan tetapi TIDAK ada di datamu.
+     Kalau muncul di lowongan, generator hanya memberi peringatan (tidak menambahkannya). */
+  watch: ['python', 'power bi', 'tableau', 'figma', 'autocad', 'accurate', 'zahir', 'sap', 'wms', 'forklift', 'kasir',
+          'react', 'java', 'laravel', 'node.js', 'photoshop', 'canva', 'sim a', 'sim c', 'pengalaman kerja minimal',
+          'cash handling', 'perbankan', 'banking', 'akuntansi', 'pajak', 'jaringan', 'networking', 'mikrotik'],
+
+  /* ---------- Profil per bidang lamaran ---------- */
+  profiles: {
+
+    umum: {
+      file: 'Umum',
+      label: 'Umum (semua bidang)',
+      title: 'Lulusan S1 Sistem Informasi',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53, dengan pujian) dengan pengalaman operasional gudang dan inventory di Lazada Indonesia serta pendataan dan administrasi pemilih di KPU Kabupaten Deli Serdang. Terampil dalam Microsoft Office, pengelolaan data, dan pengembangan web (PHP, MySQL). Juara 2 Lomba Pengembangan Website HUT ke-80 RI (2025). Teliti, disiplin, dan mampu bekerja mandiri maupun dalam tim.',
+      sections: ['exp', 'edu', 'proj', 'skill', 'cert', 'award', 'org'],
+      bullets: {
+        lazada: ['putaway', 'inbound', 'cc', 'outbound', 'team'],
+        kpu: ['data', 'verif', 'koor', 'sos', 'doc'],
+        imk: ['koor', 'kolab', 'acara']
+      },
+      projects: ['desa', 'pakar'],
+      certs: ['xlf', 'gads', 'gana', 'web', 'ibm', 'toefl', 'xld', 'gnik'],
+      awards: ['web', 'kpu'],
+      skills: ['Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Pengelolaan Data', 'Administrasi Dokumen',
+               'Inventory Management', 'Cycle Count / Stock Opname',
+               'PHP', 'MySQL', 'JavaScript', 'HTML & CSS', 'Web Development',
+               'Komunikasi', 'Kerja Tim & Koordinasi', 'Ketelitian', 'Manajemen Waktu', 'Problem Solving', 'Adaptif', 'Bahasa Inggris (TOEFL 627)']
+    },
+
+    admin: {
+      file: 'Admin',
+      label: 'Administrasi & Pengelolaan Data',
+      title: 'Lulusan S1 Sistem Informasi',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53, dengan pujian) dengan pengalaman mengelola dan memutakhirkan 15.927 data pemilih serta administrasi dokumen di KPU Kabupaten Deli Serdang, dan menjaga ketepatan data stok melalui cycle count di Lazada Indonesia. Terampil dalam Microsoft Office, spreadsheet, dan data entry. Teliti, disiplin, dan terbiasa berkoordinasi dengan banyak pihak.',
+      sections: ['exp', 'edu', 'skill', 'cert', 'award', 'org', 'proj'],
+      bullets: {
+        kpu: ['data', 'verif', 'doc', 'koor', 'rekrut'],
+        lazada: ['cc', 'inbound', 'admin', 'stock', 'team'],
+        imk: ['koor', 'kolab']
+      },
+      projects: ['desa'],
+      certs: ['xlf', 'gana', 'ibm', 'xld', 'gnik', 'web', 'toefl', 'gads'],
+      awards: ['kpu', 'web'],
+      skills: ['Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Pengelolaan Data', 'Administrasi Dokumen', 'Verifikasi dan Validasi Data',
+               'Inventory Management', 'Cycle Count / Stock Opname', 'MySQL', 'Sistem Informasi',
+               'Ketelitian', 'Kerja Tim & Koordinasi', 'Komunikasi', 'Manajemen Waktu', 'Adaptif', 'Bahasa Inggris (TOEFL 627)']
+    },
+
+    logistik: {
+      file: 'Warehouse',
+      label: 'Warehouse, Logistik & Inventory',
+      title: 'Lulusan S1 Sistem Informasi',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53) dengan sekitar 1,5 tahun pengalaman operasional gudang di Lazada Indonesia: inbound, putaway, cycle count, dan outbound, dengan capaian rata-rata ±700 pcs/jam (target 500 pcs/jam). Teliti pada data stok, terbiasa bekerja dengan target, dan pernah menggantikan peran pengawas.',
+      sections: ['exp', 'skill', 'edu', 'cert', 'award', 'org', 'proj'],
+      bullets: {
+        lazada: ['putaway', 'inbound', 'stock', 'cc', 'outbound', 'sup', 'admin', 'team'],
+        kpu: ['data', 'verif', 'koor'],
+        imk: ['koor', 'acara']
+      },
+      projects: [],
+      certs: ['xlf', 'ibm', 'xld', 'gnik', 'toefl', 'gana', 'web'],
+      awards: ['kpu', 'web'],
+      skills: ['Inventory Management', 'Inbound & Outbound', 'Cycle Count / Stock Opname', 'Picking & Packing', 'Logistik',
+               'Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Administrasi Dokumen', 'Dasar Manajemen Proyek (IBM)',
+               'Kerja Tim & Koordinasi', 'Ketelitian', 'Manajemen Waktu', 'Adaptif', 'Problem Solving']
+    },
+
+    it: {
+      file: 'IT',
+      label: 'IT, Web Developer & Sistem Informasi',
+      title: 'Lulusan S1 Sistem Informasi',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53, dengan pujian) yang membangun sistem berbasis web dengan PHP, MySQL, JavaScript, dan Bootstrap, termasuk website administrasi desa dan sistem pakar Fuzzy Tsukamoto (skripsi). Juara 2 Lomba Pengembangan Website HUT ke-80 RI (2025). Memahami pengelolaan data dan proses operasional dari pengalaman kerja, serta bersertifikat Google Analytics dan Google Ads.',
+      sections: ['proj', 'edu', 'skill', 'exp', 'cert', 'award', 'org'],
+      bullets: {
+        lazada: ['putaway', 'cc', 'team'],
+        kpu: ['data', 'verif', 'koor'],
+        imk: ['koor']
+      },
+      projects: ['desa', 'pakar'],
+      certs: ['web', 'gana', 'gads', 'ibm', 'toefl', 'xlf', 'xld', 'gnik'],
+      awards: ['web', 'kpu'],
+      skills: ['PHP', 'MySQL', 'JavaScript', 'HTML & CSS', 'Bootstrap', 'Web Development', 'Sistem Informasi', 'Fuzzy Logic (Tsukamoto)',
+               'Google Analytics & Google Ads', 'Dasar Manajemen Proyek (IBM)',
+               'Microsoft Office (Word, Excel)', 'Pengelolaan Data', 'Spreadsheet',
+               'Problem Solving', 'Kerja Tim & Koordinasi', 'Adaptif', 'Ketelitian', 'Bahasa Inggris (TOEFL 627)']
+    },
+
+    frontliner: {
+      file: 'Bank',
+      label: 'Bank (Teller, CS)',
+      title: 'Lulusan S1 Sistem Informasi',
+      summary: 'Lulusan S1 Sistem Informasi (IPK 3,53, dengan pujian) dengan pengalaman berinteraksi langsung dengan masyarakat melalui sosialisasi dan koordinasi di KPU Kabupaten Deli Serdang, serta ketelitian dalam pencocokan data dan stok di Lazada Indonesia. Terbiasa bekerja dengan target (capaian rata-rata ±700 pcs/jam dari target 500), berkomunikasi dengan berbagai pihak, dan teliti dalam administrasi data. Pernah menjabat Kepala Bidang Pelayanan di organisasi mahasiswa.',
+      sections: ['exp', 'org', 'edu', 'skill', 'cert', 'award'],
+      bullets: {
+        kpu: ['sos', 'koor', 'verif', 'data', 'doc'],
+        lazada: ['cc', 'inbound', 'team', 'sup'],
+        imk: ['koor', 'kolab', 'acara']
+      },
+      projects: [],
+      certs: ['xlf', 'xld', 'gnik', 'toefl', 'gana', 'ibm', 'web'],
+      awards: ['kpu', 'web'],
+      skills: ['Komunikasi', 'Pelayanan dan Sosialisasi kepada Masyarakat', 'Kerja Tim & Koordinasi', 'Ketelitian', 'Adaptif', 'Manajemen Waktu', 'Bahasa Inggris (TOEFL 627)',
+               'Verifikasi dan Validasi Data', 'Data Entry', 'Microsoft Office (Word, Excel)', 'Administrasi Dokumen', 'Pengelolaan Data', 'Cycle Count / Stock Opname']
+    }
   }
 };
