@@ -72,6 +72,7 @@ var CV_EN = {
     ibm:   'IBM SkillsBuild: Data Fundamentals; Project Management Fundamentals; Getting Started with Generative AI (2026)',
     web:   'Web Programming Competency Certificate, STMIK Triguna Dharma (2025)',
     toefl: 'TOEFL Prediction Test, TOEFL Academy, score 627 (2026)',
+    excel: 'Microsoft Excel: Excel Fundamentals (With Distinction, score 90%), Science of Apps; Excel Dashboard for Beginners, Simplilearn (2026)',
     gnik:  'GNIK Essential Skills, National Internship Program: Digital Literacy (100), Social Influence (100), Self Efficacy (90) (2026)'
   },
 
