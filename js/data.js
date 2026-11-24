@@ -171,6 +171,28 @@ var PORTFOLIO = {
       url: '', verify: '', web: ''
     },
     {
+      id: 'excel-fundamentals',
+      logo: 'logo-science-of-apps',
+      k: 'Sertifikasi',
+      t: 'Microsoft Excel Fundamentals (With Distinction)',
+      d: 'November 2026',
+      iss: 'Science of Apps',
+      issd: 'Penyelenggara tes keterampilan dan sertifikasi online.',
+      desc: 'Sertifikat Achievement dengan predikat With Distinction, atas kemampuan dasar Microsoft Excel yang dibuktikan melalui tes keterampilan Science of Apps. Skor 90%. Diterbitkan 23 November 2026. ID sertifikat: SOA-XLF-NUYB-XF2W.',
+      url: '', verify: 'https://scienceofapps.com/certification/verify/?id=SOA-XLF-NUYB-XF2W', web: 'https://scienceofapps.com'
+    },
+    {
+      id: 'excel-dashboard',
+      logo: 'logo-simplilearn',
+      k: 'Sertifikasi',
+      t: 'Excel Dashboard for Beginners',
+      d: 'November 2026',
+      iss: 'Simplilearn SkillUP',
+      issd: 'Platform pembelajaran online Simplilearn (program SkillUP), kursus ini bersumber dari Microsoft.',
+      desc: 'Sertifikat penyelesaian kursus online membuat dashboard di Microsoft Excel. Diterbitkan 23 November 2026. Kode sertifikat: 11071259. Catatan penerbit: ini sertifikat penyelesaian kursus, bukan sertifikasi resmi Microsoft.',
+      url: '', verify: 'https://certificates.simplicdn.net/share/11071259_11419051_1795448536986.png', web: 'https://www.simplilearn.com'
+    },
+    {
       id: 'toefl',
       logo: 'logo-toefl-academy',
       k: 'Sertifikasi',
