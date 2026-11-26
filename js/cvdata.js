@@ -96,7 +96,7 @@ var CV = {
     ibm:   'IBM SkillsBuild: Data Fundamentals; Project Management Fundamentals; Getting Started with Generative AI (2026)',
     web:   'Web Programming Competency Certificate, STMIK Triguna Dharma (2025)',
     toefl: 'TOEFL Prediction Test, TOEFL Academy, skor 627 (2026)',
-    xlf:   'Microsoft Excel Fundamentals (With Distinction, skor 90%), Science of Apps (2026)',
+    xlf:   'Microsoft Excel Fundamentals (With Distinction), Science of Apps (2026)',
     xld:   'Excel Dashboard for Beginners, Simplilearn SkillUP (2026)',
     gnik:  'GNIK Essential Skills, Program Magang Nasional: Digital Literacy (100), Social Influence (100), Self Efficacy (90) (2026)'
   },
@@ -164,7 +164,7 @@ var CV = {
         imk: ['koor', 'kolab', 'acara']
       },
       projects: ['desa', 'pakar'],
-      certs: ['xlf', 'xld', 'gads', 'gana', 'web', 'ibm', 'toefl', 'gnik'],
+      certs: ['xlf', 'gads', 'gana', 'web', 'ibm', 'toefl', 'xld', 'gnik'],
       awards: ['web', 'kpu'],
       skills: ['Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Pengelolaan Data', 'Administrasi Dokumen',
                'Inventory Management', 'Cycle Count / Stock Opname',
@@ -184,7 +184,7 @@ var CV = {
         imk: ['koor', 'kolab']
       },
       projects: ['desa'],
-      certs: ['xlf', 'xld', 'gana', 'ibm', 'gnik', 'web', 'toefl', 'gads'],
+      certs: ['xlf', 'gana', 'ibm', 'xld', 'gnik', 'web', 'toefl', 'gads'],
       awards: ['kpu', 'web'],
       skills: ['Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Pengelolaan Data', 'Administrasi Dokumen', 'Verifikasi dan Validasi Data',
                'Inventory Management', 'Cycle Count / Stock Opname', 'MySQL', 'Sistem Informasi',
@@ -203,7 +203,7 @@ var CV = {
         imk: ['koor', 'acara']
       },
       projects: [],
-      certs: ['xlf', 'xld', 'ibm', 'gnik', 'toefl', 'gana', 'web'],
+      certs: ['xlf', 'ibm', 'xld', 'gnik', 'toefl', 'gana', 'web'],
       awards: ['kpu', 'web'],
       skills: ['Inventory Management', 'Inbound & Outbound', 'Cycle Count / Stock Opname', 'Picking & Packing', 'Logistik',
                'Microsoft Office (Word, Excel)', 'Spreadsheet', 'Data Entry', 'Administrasi Dokumen', 'Dasar Manajemen Proyek (IBM)',
@@ -222,7 +222,7 @@ var CV = {
         imk: ['koor']
       },
       projects: ['desa', 'pakar'],
-      certs: ['web', 'gana', 'gads', 'ibm', 'toefl', 'gnik', 'xlf', 'xld'],
+      certs: ['web', 'gana', 'gads', 'ibm', 'toefl', 'xlf', 'xld', 'gnik'],
       awards: ['web', 'kpu'],
       skills: ['PHP', 'MySQL', 'JavaScript', 'HTML & CSS', 'Bootstrap', 'Web Development', 'Sistem Informasi', 'Fuzzy Logic (Tsukamoto)',
                'Google Analytics & Google Ads', 'Dasar Manajemen Proyek (IBM)',
