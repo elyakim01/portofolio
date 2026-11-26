@@ -178,7 +178,7 @@ var PORTFOLIO = {
       d: 'November 2026',
       iss: 'Science of Apps',
       issd: 'Penyelenggara tes keterampilan dan sertifikasi online.',
-      desc: 'Sertifikat Achievement dengan predikat With Distinction, atas kemampuan dasar Microsoft Excel yang dibuktikan melalui tes keterampilan Science of Apps. Skor 90%. Diterbitkan 23 November 2026. ID sertifikat: SOA-XLF-NUYB-XF2W.',
+      desc: 'Sertifikat Achievement dengan predikat With Distinction, atas kemampuan dasar Microsoft Excel yang dibuktikan melalui tes keterampilan Science of Apps. Diterbitkan 23 November 2026. ID sertifikat: SOA-XLF-NUYB-XF2W.',
       url: '', verify: 'https://scienceofapps.com/certification/verify/?id=SOA-XLF-NUYB-XF2W', web: 'https://scienceofapps.com'
     },
     {
